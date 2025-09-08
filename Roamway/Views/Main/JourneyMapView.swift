@@ -49,7 +49,7 @@ struct JourneyMapView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .sheet(isPresented: $showingAddJourney) {
-            EditJourneyView(journey: journey, viewModel: viewModel)
+            EditorSheetView(journey: journey, viewModel: viewModel)
                 .background(Color(.systemGroupedBackground))
         }
         .toolbar {

@@ -81,7 +81,7 @@ struct JourneyItineraryView: View {
             .padding()
         }
         .sheet(isPresented: $showingAddJourney) {
-            EditJourneyView(journey: journey, viewModel: viewModel)
+            EditorSheetView(journey: journey, viewModel: viewModel)
                 .background(Color(.systemGroupedBackground))
         }
         .toolbar {

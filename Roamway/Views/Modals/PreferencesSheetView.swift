@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PreferencesView: View {
+struct PreferencesSheetView: View {
     @AppStorage("accentColor") private var accentColorData: Data = try! NSKeyedArchiver.archivedData(withRootObject: UIColor.systemBlue, requiringSecureCoding: false)
     @State private var color: Color = .blue
     @Environment(\.dismiss) private var dismiss

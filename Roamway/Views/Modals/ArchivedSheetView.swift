@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ArchivedView: View {
+struct ArchivedSheetView: View {
     @ObservedObject var viewModel: JourneyViewModel
     @Environment(\.dismiss) private var dismiss
     

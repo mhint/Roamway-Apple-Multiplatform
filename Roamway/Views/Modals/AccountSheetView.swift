@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct AccountSheet: View {
+struct AccountSheetView: View {
     @State private var showingPreferences = false
     @State private var showingArchived = false
     @Environment(\.dismiss) private var dismiss
@@ -58,12 +58,12 @@ struct AccountSheet: View {
         .scrollDisabled(true)
         .listSectionSpacing(.compact)
         .sheet(isPresented: $showingArchived) {
-            ArchivedView(viewModel: viewModel)
+            ArchivedSheetView(viewModel: viewModel)
                 .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $showingPreferences) {
-            PreferencesView()
-                .presentationDetents([.medium, .large])
+            PreferencesSheetView()
+                .presentationDetents([.medium])
         }
     }
 }

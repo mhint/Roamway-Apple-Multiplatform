@@ -93,8 +93,8 @@ struct JourneyListView: View {
             .transition(.flyOutLeft())
         }
         .sheet(item: $styleTarget) { journey in
-            ColorStyleSheetView(title: journey.title, journey: journey, viewModel: viewModel)
-                .presentationDetents([.height(280), .medium])
+            CardStyleSheetView(journey: journey, viewModel: viewModel)
+                .presentationDetents([.medium])
         }
     }
 }

@@ -51,12 +51,12 @@ struct MainView: View {
                 .onChange(of: searchText) { _, newValue in
                 }
                 .sheet(isPresented: $showingAccount) {
-                    AccountSheet(viewModel: journeyViewModel)
+                    AccountSheetView(viewModel: journeyViewModel)
                         .presentationDetents([.medium])
                         .presentationDragIndicator(.visible)
                 }
                 .sheet(isPresented: $showingAddJourney) {
-                    AddJourneyView(viewModel: journeyViewModel)
+                    EditorSheetView(viewModel: journeyViewModel)
                         .background(Color(.systemGroupedBackground))
                 }
         }

@@ -35,6 +35,11 @@ class JourneyViewModel: ObservableObject {
         journeys.filter { !$0.isArchived }
     }
     
+    func setIcon(for journeyID: UUID, icon: String) {
+        guard let idx = journeys.firstIndex(where: { $0.id == journeyID }) else { return }
+        journeys[idx].icon = icon
+    }
+    
     func setCardColors(for journeyID: UUID, accent: Color, fill: Color) {
         guard let idx = journeys.firstIndex(where: { $0.id == journeyID }) else { return }
         journeys[idx].card.accent = .color(accent)
