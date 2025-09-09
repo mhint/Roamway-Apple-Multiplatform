@@ -4,7 +4,7 @@ let placeIcons = [
     "mappin",
     "tent.fill",
     "mountain.2.fill",
-    "rainbow",
+    "person.bust.fill",
     "beach.umbrella.fill",
     "mecca"
 ]
@@ -14,8 +14,8 @@ let storageIcons = [
     "suitcase.fill",
     "suitcase.rolling.fill",
     "suitcase.rolling.and.suitcase.fill",
-    "suitcase.rolling.and.film.fill",
-    "basket.fill",
+    "duffle.bag.fill",
+    "briefcase.fill",
 ]
 
 let transportationIcons = [
@@ -30,8 +30,8 @@ let transportationIcons = [
 let nauticalIcons = [
     "ferry.fill",
     "sailboat.fill",
+    "oar.2.crossed",
     "fossil.shell.fill",
-    "fish.fill",
     "lifepreserver",
     "surfboard.fill"
 ]
@@ -46,12 +46,12 @@ let astroIcons = [
 ]
 
 let otherIcons = [
-    "birthday.cake.fill",
     "balloon.fill",
+    "basket.fill",
+    "rainbow",
     "snowboard.fill",
     "skis.fill",
-    "figure.equestrian.sports",
-    "calendar.and.person"
+    "film.fill"
 ]
 
 enum IconCategory: String, CaseIterable, Identifiable {
