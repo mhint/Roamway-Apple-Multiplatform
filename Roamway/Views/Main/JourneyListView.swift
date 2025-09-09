@@ -11,7 +11,7 @@ struct JourneyListView: View {
     @State private var styleTarget: Journey? = nil
 
     private let overlap: CGFloat = 100
-    private let revealWidth: CGFloat = 220
+    private let revealWidth: CGFloat = 150
 
     var body: some View {
         OverlapListView(data: viewModel.activeJourneys, overlap: overlap) { journey in
@@ -42,7 +42,7 @@ struct JourneyListView: View {
                                 Circle()
                                     .fill(.gray)
                                     .frame(width: 50, height: 50)
-                                Image(systemName: "ellipsis")
+                                Image(systemName: "ellipsis.circle.fill")
                                     .foregroundStyle(.white)
                             }
                             Text("More")
@@ -51,27 +51,9 @@ struct JourneyListView: View {
                         }
                     }
                     .buttonStyle(.plain)
-                    
-                    Button {
-                        viewModel.archiveJourney(journey)
-                    } label: {
-                        VStack(spacing: 4) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.yellow)
-                                    .frame(width: 50, height: 50)
-                                Image(systemName: "pin.fill")
-                                    .foregroundStyle(.white)
-                            }
-                            Text("Pin")
-                                .font(.system(size: 13))
-                                .opacity(0.6)
-                        }
-                    }
-                    .buttonStyle(.plain)
 
                     Button {
-                        // viewModel.pinJourney(journey)
+                        viewModel.archiveJourney(journey)
                     } label: {
                         VStack(spacing: 4) {
                             ZStack {
