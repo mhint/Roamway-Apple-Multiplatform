@@ -12,7 +12,7 @@ struct CardStyleSheetView: View {
         switch iconCategory {
         case .places:
             placeIcons
-        case .storage:
+        case .luggage:
             luggageIcons
         case .transportation:
             transportationIcons

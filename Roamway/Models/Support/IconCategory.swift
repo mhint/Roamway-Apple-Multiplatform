@@ -56,7 +56,7 @@ let otherIcons = [
 
 enum IconCategory: String, CaseIterable, Identifiable {
     case places = "Places"
-    case storage = "Storage"
+    case luggage = "Luggage"
     case transportation = "Transportation"
     case nautical = "Nautical"
     case astro = "Astronomical"
@@ -66,7 +66,7 @@ enum IconCategory: String, CaseIterable, Identifiable {
 
     static func forIcon(_ icon: String) -> IconCategory {
         if placeIcons.contains(icon) { return .places }
-        if luggageIcons.contains(icon) { return .storage }
+        if luggageIcons.contains(icon) { return .luggage }
         if transportationIcons.contains(icon) { return .transportation }
         if nauticalIcons.contains(icon) { return .nautical }
         if astroIcons.contains(icon) { return .astro }
