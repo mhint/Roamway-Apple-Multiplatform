@@ -13,7 +13,7 @@ struct CardStyleSheetView: View {
         case .places:
             placeIcons
         case .storage:
-            storageIcons
+            luggageIcons
         case .transportation:
             transportationIcons
         case .nautical:
@@ -32,15 +32,17 @@ struct CardStyleSheetView: View {
         _icon = State(initialValue: journey.icon)
         _iconCategory = State(initialValue: IconCategory.forIcon(journey.icon))
 
-        if case .color(let cd) = journey.card.accent.kind {
-            _accent = State(initialValue: cd.color)
-        } else {
-            _accent = State(initialValue: .primary)
+        switch journey.card.accent.kind {
+        case .color:
+            _accent = State(initialValue: journey.card.accent.colorData?.color ?? .white)
+        case .material, .tint:
+            _accent = State(initialValue: .white)
         }
 
-        if case .color(let cd) = journey.card.fill.kind {
-            _fill = State(initialValue: cd.color)
-        } else {
+        switch journey.card.fill.kind {
+        case .color:
+            _fill = State(initialValue: journey.card.fill.colorData?.color ?? .blue)
+        case .material, .tint:
             _fill = State(initialValue: .blue)
         }
     }

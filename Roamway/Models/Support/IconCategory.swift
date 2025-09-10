@@ -9,7 +9,7 @@ let placeIcons = [
     "mecca"
 ]
 
-let storageIcons = [
+let luggageIcons = [
     "backpack.fill",
     "suitcase.fill",
     "suitcase.rolling.fill",
@@ -66,7 +66,7 @@ enum IconCategory: String, CaseIterable, Identifiable {
 
     static func forIcon(_ icon: String) -> IconCategory {
         if placeIcons.contains(icon) { return .places }
-        if storageIcons.contains(icon) { return .storage }
+        if luggageIcons.contains(icon) { return .storage }
         if transportationIcons.contains(icon) { return .transportation }
         if nauticalIcons.contains(icon) { return .nautical }
         if astroIcons.contains(icon) { return .astro }
