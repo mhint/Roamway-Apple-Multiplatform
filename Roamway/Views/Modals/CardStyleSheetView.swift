@@ -6,6 +6,7 @@ struct CardStyleSheetView: View {
     @State private var iconCategory: IconCategory
     @State private var accent: Color
     @State private var fill: Color
+    
     let journey: Journey
 
     private var currentIcons: [String] {
@@ -41,38 +42,40 @@ struct CardStyleSheetView: View {
 
         switch journey.card.fill.kind {
         case .color:
-            _fill = State(initialValue: journey.card.fill.colorData?.color ?? .blue)
+            _fill = State(initialValue: journey.card.fill.colorData?.color ?? .accentColor)
         case .material, .tint:
-            _fill = State(initialValue: .blue)
+            _fill = State(initialValue: .accentColor)
         }
     }
 
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Category", selection: $iconCategory) {
-                    ForEach(IconCategory.allCases) { category in
-                        Text(category.rawValue)
-                            .tag(category)
+                Section("Icon") {
+                    Picker("Category", selection: $iconCategory) {
+                        ForEach(IconCategory.allCases) { category in
+                            Text(category.rawValue)
+                                .tag(category)
+                        }
                     }
-                }
-                .pickerStyle(.segmented)
-                .padding(.vertical, 6)
+                    .pickerStyle(.menu)
+                    .padding(.vertical, 6)
 
-                Picker("Icon", selection: $icon) {
-                    ForEach(currentIcons, id: \.self) { iconName in
-                        Image(systemName: iconName)
-                            .tag(iconName)
+                    Picker("Icon", selection: $icon) {
+                        ForEach(currentIcons, id: \.self) { iconName in
+                            Image(systemName: iconName)
+                                .tag(iconName)
+                        }
                     }
+                    .pickerStyle(.segmented)
+                    .sensoryFeedback(.selection, trigger: icon)
                 }
-                .pickerStyle(.segmented)
 
                 Section("Colors") {
-                    ColorPicker("Icon Color", selection: $accent, supportsOpacity: true)
-                    ColorPicker("Fill Color", selection: $fill, supportsOpacity: true)
+                    ColorPicker("Card theme", selection: $fill, supportsOpacity: false)
                 }
             }
-            .navigationTitle("Icon and Style")
+            .navigationTitle("Card Style")
             .onDisappear {
                 viewModel.setCardColors(for: journey.id, accent: accent, fill: fill)
                 viewModel.setIcon(for: journey.id, icon: icon)
